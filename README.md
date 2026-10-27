@@ -113,6 +113,8 @@ python3 app.py --version        show the version
 See [tests/README.md](tests/README.md). The tests use a Docker lab with
 practice targets, so nothing outside your computer is scanned.
 
+Hail the Omnissiah!
+
 ## License
 
 MIT, see [LICENSE](LICENSE). Nmap itself is not part of this project and has
