@@ -3,7 +3,7 @@
 All notable changes to this project are listed here. Versions follow
 [Semantic Versioning](https://semver.org/).
 
-## [1.0.0] - unreleased
+## [1.0.0] - 2026-10-27
 
 First public release.
 
@@ -32,3 +32,5 @@ First public release.
 - Ubuntu 20.04, 22.04 and 24.04, Debian 12, Fedora 41, Arch, openSUSE
   Tumbleweed, Alpine 3.20 and Kali, with each one's own Nmap (7.80 to 7.99)
   and Python (3.8 to 3.14).
+
+[1.0.0]: https://github.com/Azki09/ariadne-nmap/releases/tag/v1.0.0
