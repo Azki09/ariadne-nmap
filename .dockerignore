@@ -1,0 +1,5 @@
+# Only the app files go into the image (not the Windows nmap copy or the source zip).
+*
+!prototype/app.py
+!prototype/index.html
+!prototype/start.sh

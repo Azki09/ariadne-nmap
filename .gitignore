@@ -1,0 +1,18 @@
+# Local test copies of Nmap. Never commit them: the project does not ship Nmap.
+prototype/nmap/
+nmap/
+nmap-*.zip
+*.zip
+
+# Python
+__pycache__/
+*.pyc
+
+# Saved scans, if --data-dir points inside the project
+scans/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

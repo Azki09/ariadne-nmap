@@ -1,0 +1,61 @@
+# Linux test lab for Ariadne.
+#
+#   docker compose up --build -d     then open http://127.0.0.1:8732
+#   docker compose down              stop and remove everything
+#
+# "navigator" runs the app with real nmap on Ubuntu. The other containers are
+# targets you are allowed to scan; they live on a private network only:
+#   web       172.30.0.20  nginx (80)
+#   cache     172.30.0.30  redis (6379, not in the top 1000 ports)
+#   services  172.30.0.40  ftp 21, ssh 22, dns 53 tcp+udp, proxy 8888, snmp 161/udp
+# The network also has IPv6 (fd00:30::/64) for trying -6.
+#   nmap -sV web cache services
+#   nmap -sn 172.30.0.0/24
+services:
+  navigator:
+    build: .
+    image: ariadne:dev
+    ports:
+      - "127.0.0.1:8732:8732"   # reachable from this computer only
+    cap_add:
+      - NET_RAW
+      - NET_ADMIN
+    volumes:
+      - scans:/home/navigator/scans
+    networks:
+      lab:
+        ipv4_address: 172.30.0.10
+        ipv6_address: fd00:30::10
+
+  web:
+    image: nginx:1.27-alpine
+    networks:
+      lab:
+        ipv4_address: 172.30.0.20
+        ipv6_address: fd00:30::20
+
+  cache:
+    image: redis:7.4-alpine
+    networks:
+      lab:
+        ipv4_address: 172.30.0.30
+        ipv6_address: fd00:30::30
+
+  services:
+    build: ./lab
+    image: ariadne-lab:dev
+    networks:
+      lab:
+        ipv4_address: 172.30.0.40
+        ipv6_address: fd00:30::40
+
+networks:
+  lab:
+    enable_ipv6: true
+    ipam:
+      config:
+        - subnet: 172.30.0.0/24
+        - subnet: fd00:30::/64
+
+volumes:
+  scans:

@@ -1,0 +1,4 @@
+# Store text with LF and check it out with LF everywhere, so shell scripts and
+# Dockerfiles work on Linux even when the repo is cloned on Windows.
+* text=auto eol=lf
+*.zip binary

@@ -1,0 +1,62 @@
+name: Bug report
+description: Something does not work as expected.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please remove any IP address, host name or result
+        you do not want to make public before you send this.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What did you do, what did you expect, and what did you see instead?
+    validations:
+      required: true
+  - type: input
+    id: command
+    attributes:
+      label: Nmap command
+      description: Shown at the top of the scan. Replace real targets with something like 192.0.2.10.
+      placeholder: nmap -sS -p 22,80 192.0.2.10
+  - type: input
+    id: app
+    attributes:
+      label: Ariadne version
+      description: Shown next to the name at the top left, or run python3 app.py --version.
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: input
+    id: system
+    attributes:
+      label: Operating system
+      placeholder: Ubuntu 24.04, Fedora 41, Windows 11...
+    validations:
+      required: true
+  - type: input
+    id: nmap
+    attributes:
+      label: Nmap version
+      description: Output of nmap --version (first line).
+      placeholder: Nmap version 7.94SVN
+  - type: dropdown
+    id: privileges
+    attributes:
+      label: Privilege pill at the top
+      options:
+        - Privileged
+        - Normal user
+        - Not sure
+  - type: input
+    id: browser
+    attributes:
+      label: Browser
+      placeholder: Firefox 131, Chrome 130...
+  - type: textarea
+    id: output
+    attributes:
+      label: Terminal output or error message
+      description: From the Terminal tab or the window where app.py runs.
+      render: text

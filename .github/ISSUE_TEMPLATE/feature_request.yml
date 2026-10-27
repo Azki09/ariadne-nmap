@@ -1,0 +1,16 @@
+name: Idea or request
+description: Suggest something new, or an explanation that could be clearer.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like
+      description: Describe the idea, or quote the text that was confusing and say why.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it would help
+      description: What are you trying to do or learn?

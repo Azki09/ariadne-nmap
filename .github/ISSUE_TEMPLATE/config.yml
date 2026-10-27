@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Questions about Nmap itself
+    url: https://nmap.org/book/man.html
+    about: The Nmap Reference Guide explains every option in depth.
